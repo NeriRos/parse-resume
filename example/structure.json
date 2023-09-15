@@ -1,0 +1,21 @@
+{
+  "contact-info": {
+    "name": "string"
+  },
+  "experience": [
+    {
+      "start-date": "string",
+      "end-date": "string",
+      "title": "string",
+      "description": "string",
+      "company": "string"
+    },
+    {
+      "start-date": "string",
+      "end-date": "string",
+      "title": "string",
+      "description": "string",
+      "company": "string"
+    }
+  ]
+}
