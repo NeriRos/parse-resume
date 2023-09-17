@@ -14,10 +14,16 @@ Then uses openai to get certain information from the text in the required format
 pip install -r requirements.txt
 ```
 
+Create a `.env` file with the following contents:
+
+```text
+OPENAI_API_KEY="..."
+```
+
 ## Usage
 
 ```bash
-export OPENAI_API_KEY="..." && python parse_resume.py <path_to_resume>
+python parse_resume.py <path_to_resume.pdf> <path_to_structure.json>
 ```
 
 Update the structure of the resume in the `structure` variable in the script.
