@@ -7,6 +7,10 @@ from pdfminer.high_level import extract_text
 load_dotenv()
 
 
+def parse_resume(path):
+    return extract_text(path)
+
+
 class ResumeParser:
     def __init__(self, resume_path, structure_path, *args):
         self.llm = ChatOpenAI()
@@ -14,11 +18,8 @@ class ResumeParser:
         self.resume_path = resume_path
 
     def start(self):
-        text = self.parse_resume(self.resume_path)
+        text = parse_resume(self.resume_path)
         return self.extract_structure(text)
-
-    def parse_resume(self, path):
-        return extract_text(path)
 
     def extract_structure(self, text):
         return self.llm.predict(self.build_prompt(text))
