@@ -1,3 +1,5 @@
+import sys
+
 from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from pdfminer.high_level import extract_text
@@ -6,9 +8,9 @@ load_dotenv()
 
 
 class ResumeParser:
-    def __init__(self, resume_path, *args):
+    def __init__(self, resume_path, structure_path, *args):
         self.llm = ChatOpenAI()
-        self.structure = open('example/structure.json', 'r').read().split('\n')
+        self.structure = open(structure_path, 'r').read().split('\n')
         self.resume_path = resume_path
 
     def start(self):
@@ -32,5 +34,9 @@ class ResumeParser:
 
 
 if __name__ == '__main__':
-    parsed = ResumeParser('example/resume.pdf').start()
+    resume_path_file = sys.argv[1] if len(sys.argv) > 1 else 'example/resume.pdf'
+    structure_path_file = sys.argv[2] if len(sys.argv) > 2 else 'example/structure.json'
+
+    parsed = ResumeParser(resume_path_file, structure_path_file).start()
+
     print(parsed)
