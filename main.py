@@ -7,7 +7,7 @@ from pdfminer.high_level import extract_text
 load_dotenv()
 
 
-def parse_resume(path):
+def pdf_to_text(path):
     return extract_text(path)
 
 
@@ -18,7 +18,7 @@ class ResumeParser:
         self.resume_path = resume_path
 
     def start(self):
-        text = parse_resume(self.resume_path)
+        text = pdf_to_text(self.resume_path)
         return self.extract_structure(text)
 
     def extract_structure(self, text):
