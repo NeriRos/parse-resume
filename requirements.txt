@@ -1,3 +1,6 @@
-langchain
+langchain~=0.0.291
 openai
 pdfminer.six
+python-dotenv~=1.0.0
+
+pdfminer~=20191125
